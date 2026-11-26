@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application rules
+- Keep account identity in one root auth subscriber and signed-in pages under the client-only authenticated layout; server functions independently validate authentication.
+- Keep document rules in the workspace domain module and all durable reads/writes behind authenticated server functions and unit-scoped RLS; never use local storage as authoritative data.
+- New units are created atomically by an authenticated setup RPC and grant administrator only in that new isolated unit; existing membership changes require a unit administrator.
+- Database triggers validate document ownership and atomically record audit, movements, and derived deadlines; local cache/synchronization is deferred and must preserve this official source.
+- Category modules share the central document registry; specialized workflows remain explicitly deferred.

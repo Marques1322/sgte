@@ -1,23 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import {createFileRoute,useNavigate} from '@tanstack/react-router';
+import {useEffect} from 'react';
+import {Dashboard} from '@/features/workspace/dashboard';
+import {useAccount} from '@/features/workspace/auth-context';
+import {pageHead} from '@/features/workspace/meta';
+export const Route=createFileRoute('/')({head:()=>pageHead('Painel inicial','Controle institucional de documentos e prazos militares por unidade.'),component:Index});
+function Index(){const {user,ready}=useAccount();const navigate=useNavigate();useEffect(()=>{if(ready&&user)navigate({to:'/dashboard',replace:true});},[user,ready,navigate]);return <Dashboard/>;}
