@@ -35,3 +35,5 @@ use the editor.
 - New units are created atomically by an authenticated setup RPC and grant administrator only in that new isolated unit; existing membership changes require a unit administrator.
 - Database triggers validate document ownership and atomically record audit, movements, and derived deadlines; local cache/synchronization is deferred and must preserve this official source.
 - Category modules share the central document registry; specialized workflows remain explicitly deferred.
+- Store FATD stages as child rows of the central registry and enforce parent integrity and audit/movements with database triggers so every write path preserves the same official record.
+- Database integration tests use temporary tables and temporary copies of installed trigger bodies; never write official application rows or managed auth data, to keep verification isolated.

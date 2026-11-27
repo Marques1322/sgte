@@ -264,6 +264,67 @@ export type Database = {
           },
         ]
       }
+      fatd_stage_deadlines: {
+        Row: {
+          completed_date: string | null
+          created_at: string
+          created_by: string
+          document_id: string
+          due_date: string | null
+          id: string
+          stage: string
+          status: string
+          unit_id: string
+          updated_at: string
+        }
+        Insert: {
+          completed_date?: string | null
+          created_at?: string
+          created_by: string
+          document_id: string
+          due_date?: string | null
+          id?: string
+          stage: string
+          status?: string
+          unit_id: string
+          updated_at?: string
+        }
+        Update: {
+          completed_date?: string | null
+          created_at?: string
+          created_by?: string
+          document_id?: string
+          due_date?: string | null
+          id?: string
+          stage?: string
+          status?: string
+          unit_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fatd_stage_deadlines_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fatd_stage_deadlines_document_id_fkey"
+            columns: ["document_id"]
+            isOneToOne: false
+            referencedRelation: "documents"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fatd_stage_deadlines_unit_id_fkey"
+            columns: ["unit_id"]
+            isOneToOne: false
+            referencedRelation: "units"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       notifications: {
         Row: {
           created_at: string

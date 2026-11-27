@@ -8,6 +8,20 @@
       "when": 1795718328519,
       "tag": "0000_sargenteacao_foundation",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1795815999612,
+      "tag": "0001_fatd_stage_deadlines",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795816061907,
+      "tag": "0002_restrict_fatd_stage_grants",
+      "breakpoints": true
     }
   ]
 }
