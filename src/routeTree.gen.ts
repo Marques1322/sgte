@@ -13,7 +13,22 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as AuthenticatedAgendaRouteImport } from './routes/_authenticated/agenda'
+import { Route as AuthenticatedBoletinsRouteImport } from './routes/_authenticated/boletins'
+import { Route as AuthenticatedConfiguracoesRouteImport } from './routes/_authenticated/configuracoes'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedDiexRouteImport } from './routes/_authenticated/diex'
+import { Route as AuthenticatedDocumentosRouteImport } from './routes/_authenticated/documentos'
+import { Route as AuthenticatedFatdRouteImport } from './routes/_authenticated/fatd'
+import { Route as AuthenticatedNotasRouteImport } from './routes/_authenticated/notas'
+import { Route as AuthenticatedOficiosRouteImport } from './routes/_authenticated/oficios'
+import { Route as AuthenticatedPartesRouteImport } from './routes/_authenticated/partes'
+import { Route as AuthenticatedProcessosRouteImport } from './routes/_authenticated/processos'
+import { Route as AuthenticatedRelatoriosRouteImport } from './routes/_authenticated/relatorios'
+import { Route as AuthenticatedSindicanciasRouteImport } from './routes/_authenticated/sindicancias'
+import { Route as AuthenticatedUsuariosRouteImport } from './routes/_authenticated/usuarios'
+import { Route as AuthenticatedDocumentosIdRouteImport } from './routes/_authenticated/documentos.$id'
+import { Route as AuthenticatedDocumentosNovoRouteImport } from './routes/_authenticated/documentos.novo'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,23 +49,132 @@ const ResetPasswordRoute = ResetPasswordRouteImport.update({
   path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAgendaRoute = AuthenticatedAgendaRouteImport.update({
+  id: '/agenda',
+  path: '/agenda',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedBoletinsRoute = AuthenticatedBoletinsRouteImport.update({
+  id: '/boletins',
+  path: '/boletins',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedConfiguracoesRoute =
+  AuthenticatedConfiguracoesRouteImport.update({
+    id: '/configuracoes',
+    path: '/configuracoes',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedDiexRoute = AuthenticatedDiexRouteImport.update({
+  id: '/diex',
+  path: '/diex',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedDocumentosRoute = AuthenticatedDocumentosRouteImport.update({
+  id: '/documentos',
+  path: '/documentos',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedFatdRoute = AuthenticatedFatdRouteImport.update({
+  id: '/fatd',
+  path: '/fatd',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedNotasRoute = AuthenticatedNotasRouteImport.update({
+  id: '/notas',
+  path: '/notas',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedOficiosRoute = AuthenticatedOficiosRouteImport.update({
+  id: '/oficios',
+  path: '/oficios',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedPartesRoute = AuthenticatedPartesRouteImport.update({
+  id: '/partes',
+  path: '/partes',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedProcessosRoute = AuthenticatedProcessosRouteImport.update({
+  id: '/processos',
+  path: '/processos',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedRelatoriosRoute = AuthenticatedRelatoriosRouteImport.update({
+  id: '/relatorios',
+  path: '/relatorios',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSindicanciasRoute =
+  AuthenticatedSindicanciasRouteImport.update({
+    id: '/sindicancias',
+    path: '/sindicancias',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedUsuariosRoute = AuthenticatedUsuariosRouteImport.update({
+  id: '/usuarios',
+  path: '/usuarios',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedDocumentosIdRoute =
+  AuthenticatedDocumentosIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => AuthenticatedDocumentosRoute,
+  } as any)
+const AuthenticatedDocumentosNovoRoute =
+  AuthenticatedDocumentosNovoRouteImport.update({
+    id: '/novo',
+    path: '/novo',
+    getParentRoute: () => AuthenticatedDocumentosRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/agenda': typeof AuthenticatedAgendaRoute
+  '/boletins': typeof AuthenticatedBoletinsRoute
+  '/configuracoes': typeof AuthenticatedConfiguracoesRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/diex': typeof AuthenticatedDiexRoute
+  '/documentos': typeof AuthenticatedDocumentosRouteWithChildren
+  '/fatd': typeof AuthenticatedFatdRoute
+  '/notas': typeof AuthenticatedNotasRoute
+  '/oficios': typeof AuthenticatedOficiosRoute
+  '/partes': typeof AuthenticatedPartesRoute
+  '/processos': typeof AuthenticatedProcessosRoute
+  '/relatorios': typeof AuthenticatedRelatoriosRoute
+  '/sindicancias': typeof AuthenticatedSindicanciasRoute
+  '/usuarios': typeof AuthenticatedUsuariosRoute
+  '/documentos/$id': typeof AuthenticatedDocumentosIdRoute
+  '/documentos/novo': typeof AuthenticatedDocumentosNovoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/agenda': typeof AuthenticatedAgendaRoute
+  '/boletins': typeof AuthenticatedBoletinsRoute
+  '/configuracoes': typeof AuthenticatedConfiguracoesRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/diex': typeof AuthenticatedDiexRoute
+  '/documentos': typeof AuthenticatedDocumentosRouteWithChildren
+  '/fatd': typeof AuthenticatedFatdRoute
+  '/notas': typeof AuthenticatedNotasRoute
+  '/oficios': typeof AuthenticatedOficiosRoute
+  '/partes': typeof AuthenticatedPartesRoute
+  '/processos': typeof AuthenticatedProcessosRoute
+  '/relatorios': typeof AuthenticatedRelatoriosRoute
+  '/sindicancias': typeof AuthenticatedSindicanciasRoute
+  '/usuarios': typeof AuthenticatedUsuariosRoute
+  '/documentos/$id': typeof AuthenticatedDocumentosIdRoute
+  '/documentos/novo': typeof AuthenticatedDocumentosNovoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -58,20 +182,88 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/_authenticated/agenda': typeof AuthenticatedAgendaRoute
+  '/_authenticated/boletins': typeof AuthenticatedBoletinsRoute
+  '/_authenticated/configuracoes': typeof AuthenticatedConfiguracoesRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/diex': typeof AuthenticatedDiexRoute
+  '/_authenticated/documentos': typeof AuthenticatedDocumentosRouteWithChildren
+  '/_authenticated/fatd': typeof AuthenticatedFatdRoute
+  '/_authenticated/notas': typeof AuthenticatedNotasRoute
+  '/_authenticated/oficios': typeof AuthenticatedOficiosRoute
+  '/_authenticated/partes': typeof AuthenticatedPartesRoute
+  '/_authenticated/processos': typeof AuthenticatedProcessosRoute
+  '/_authenticated/relatorios': typeof AuthenticatedRelatoriosRoute
+  '/_authenticated/sindicancias': typeof AuthenticatedSindicanciasRoute
+  '/_authenticated/usuarios': typeof AuthenticatedUsuariosRoute
+  '/_authenticated/documentos/$id': typeof AuthenticatedDocumentosIdRoute
+  '/_authenticated/documentos/novo': typeof AuthenticatedDocumentosNovoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/reset-password' | '/dashboard'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/reset-password'
+    | '/agenda'
+    | '/boletins'
+    | '/configuracoes'
+    | '/dashboard'
+    | '/diex'
+    | '/documentos'
+    | '/fatd'
+    | '/notas'
+    | '/oficios'
+    | '/partes'
+    | '/processos'
+    | '/relatorios'
+    | '/sindicancias'
+    | '/usuarios'
+    | '/documentos/$id'
+    | '/documentos/novo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/reset-password' | '/dashboard'
+  to:
+    | '/'
+    | '/auth'
+    | '/reset-password'
+    | '/agenda'
+    | '/boletins'
+    | '/configuracoes'
+    | '/dashboard'
+    | '/diex'
+    | '/documentos'
+    | '/fatd'
+    | '/notas'
+    | '/oficios'
+    | '/partes'
+    | '/processos'
+    | '/relatorios'
+    | '/sindicancias'
+    | '/usuarios'
+    | '/documentos/$id'
+    | '/documentos/novo'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/auth'
     | '/reset-password'
+    | '/_authenticated/agenda'
+    | '/_authenticated/boletins'
+    | '/_authenticated/configuracoes'
     | '/_authenticated/dashboard'
+    | '/_authenticated/diex'
+    | '/_authenticated/documentos'
+    | '/_authenticated/fatd'
+    | '/_authenticated/notas'
+    | '/_authenticated/oficios'
+    | '/_authenticated/partes'
+    | '/_authenticated/processos'
+    | '/_authenticated/relatorios'
+    | '/_authenticated/sindicancias'
+    | '/_authenticated/usuarios'
+    | '/_authenticated/documentos/$id'
+    | '/_authenticated/documentos/novo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -111,6 +303,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/agenda': {
+      id: '/_authenticated/agenda'
+      path: '/agenda'
+      fullPath: '/agenda'
+      preLoaderRoute: typeof AuthenticatedAgendaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/boletins': {
+      id: '/_authenticated/boletins'
+      path: '/boletins'
+      fullPath: '/boletins'
+      preLoaderRoute: typeof AuthenticatedBoletinsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/configuracoes': {
+      id: '/_authenticated/configuracoes'
+      path: '/configuracoes'
+      fullPath: '/configuracoes'
+      preLoaderRoute: typeof AuthenticatedConfiguracoesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
@@ -118,15 +331,141 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/diex': {
+      id: '/_authenticated/diex'
+      path: '/diex'
+      fullPath: '/diex'
+      preLoaderRoute: typeof AuthenticatedDiexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/documentos': {
+      id: '/_authenticated/documentos'
+      path: '/documentos'
+      fullPath: '/documentos'
+      preLoaderRoute: typeof AuthenticatedDocumentosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/fatd': {
+      id: '/_authenticated/fatd'
+      path: '/fatd'
+      fullPath: '/fatd'
+      preLoaderRoute: typeof AuthenticatedFatdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/notas': {
+      id: '/_authenticated/notas'
+      path: '/notas'
+      fullPath: '/notas'
+      preLoaderRoute: typeof AuthenticatedNotasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/oficios': {
+      id: '/_authenticated/oficios'
+      path: '/oficios'
+      fullPath: '/oficios'
+      preLoaderRoute: typeof AuthenticatedOficiosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/partes': {
+      id: '/_authenticated/partes'
+      path: '/partes'
+      fullPath: '/partes'
+      preLoaderRoute: typeof AuthenticatedPartesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/processos': {
+      id: '/_authenticated/processos'
+      path: '/processos'
+      fullPath: '/processos'
+      preLoaderRoute: typeof AuthenticatedProcessosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/relatorios': {
+      id: '/_authenticated/relatorios'
+      path: '/relatorios'
+      fullPath: '/relatorios'
+      preLoaderRoute: typeof AuthenticatedRelatoriosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/sindicancias': {
+      id: '/_authenticated/sindicancias'
+      path: '/sindicancias'
+      fullPath: '/sindicancias'
+      preLoaderRoute: typeof AuthenticatedSindicanciasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/usuarios': {
+      id: '/_authenticated/usuarios'
+      path: '/usuarios'
+      fullPath: '/usuarios'
+      preLoaderRoute: typeof AuthenticatedUsuariosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/documentos/$id': {
+      id: '/_authenticated/documentos/$id'
+      path: '/$id'
+      fullPath: '/documentos/$id'
+      preLoaderRoute: typeof AuthenticatedDocumentosIdRouteImport
+      parentRoute: typeof AuthenticatedDocumentosRoute
+    }
+    '/_authenticated/documentos/novo': {
+      id: '/_authenticated/documentos/novo'
+      path: '/novo'
+      fullPath: '/documentos/novo'
+      preLoaderRoute: typeof AuthenticatedDocumentosNovoRouteImport
+      parentRoute: typeof AuthenticatedDocumentosRoute
+    }
   }
 }
 
+interface AuthenticatedDocumentosRouteChildren {
+  AuthenticatedDocumentosIdRoute: typeof AuthenticatedDocumentosIdRoute
+  AuthenticatedDocumentosNovoRoute: typeof AuthenticatedDocumentosNovoRoute
+}
+
+const AuthenticatedDocumentosRouteChildren: AuthenticatedDocumentosRouteChildren =
+  {
+    AuthenticatedDocumentosIdRoute: AuthenticatedDocumentosIdRoute,
+    AuthenticatedDocumentosNovoRoute: AuthenticatedDocumentosNovoRoute,
+  }
+
+const AuthenticatedDocumentosRouteWithChildren =
+  AuthenticatedDocumentosRoute._addFileChildren(
+    AuthenticatedDocumentosRouteChildren,
+  )
+
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAgendaRoute: typeof AuthenticatedAgendaRoute
+  AuthenticatedBoletinsRoute: typeof AuthenticatedBoletinsRoute
+  AuthenticatedConfiguracoesRoute: typeof AuthenticatedConfiguracoesRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedDiexRoute: typeof AuthenticatedDiexRoute
+  AuthenticatedDocumentosRoute: typeof AuthenticatedDocumentosRouteWithChildren
+  AuthenticatedFatdRoute: typeof AuthenticatedFatdRoute
+  AuthenticatedNotasRoute: typeof AuthenticatedNotasRoute
+  AuthenticatedOficiosRoute: typeof AuthenticatedOficiosRoute
+  AuthenticatedPartesRoute: typeof AuthenticatedPartesRoute
+  AuthenticatedProcessosRoute: typeof AuthenticatedProcessosRoute
+  AuthenticatedRelatoriosRoute: typeof AuthenticatedRelatoriosRoute
+  AuthenticatedSindicanciasRoute: typeof AuthenticatedSindicanciasRoute
+  AuthenticatedUsuariosRoute: typeof AuthenticatedUsuariosRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAgendaRoute: AuthenticatedAgendaRoute,
+  AuthenticatedBoletinsRoute: AuthenticatedBoletinsRoute,
+  AuthenticatedConfiguracoesRoute: AuthenticatedConfiguracoesRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedDiexRoute: AuthenticatedDiexRoute,
+  AuthenticatedDocumentosRoute: AuthenticatedDocumentosRouteWithChildren,
+  AuthenticatedFatdRoute: AuthenticatedFatdRoute,
+  AuthenticatedNotasRoute: AuthenticatedNotasRoute,
+  AuthenticatedOficiosRoute: AuthenticatedOficiosRoute,
+  AuthenticatedPartesRoute: AuthenticatedPartesRoute,
+  AuthenticatedProcessosRoute: AuthenticatedProcessosRoute,
+  AuthenticatedRelatoriosRoute: AuthenticatedRelatoriosRoute,
+  AuthenticatedSindicanciasRoute: AuthenticatedSindicanciasRoute,
+  AuthenticatedUsuariosRoute: AuthenticatedUsuariosRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
